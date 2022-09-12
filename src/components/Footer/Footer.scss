@@ -1,0 +1,48 @@
+footer {
+  background-color: var(--black);
+  border-radius: 42px 42px 0px 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.875rem;
+  padding: 2.215rem 1rem 1.625rem 1.875rem;
+
+  .logo-container {
+    color: var(--white);
+    font-size: 0.875rem;
+    font-family: var(--theme-font);
+
+    svg {
+      height: 25px;
+      color: var(--white);
+    }
+  }
+
+  .copyright {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    p:first-child {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.75rem 2rem 2.5rem 6.75rem;
+    .logo-container {
+      svg {
+        height: 40px;
+      }
+    }
+    .copyright {
+      font-size: 1.125rem;
+      gap: 0.875rem;
+    }
+  }
+}

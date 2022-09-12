@@ -1,0 +1,39 @@
+:root {
+  --main-font: 'Montserrat', sans-serif;
+  --theme-font: 'Mystery Quest', cursive;
+  --white: #fff;
+  --black: #000;
+  --almost-black: #291507;
+  --dark-brown: rgba(41, 21, 7, 0.6);
+  --medium-brown: #544439;
+  --light-brown: #4d270c;
+  --light-gray: #e3e1dc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+#root {
+  width: 100%;
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: var(--main-font);
+}
+
+body {
+  display: flex;
+  place-items: center;
+  min-height: 100vh;
+}
+
+p-text {
+  color: var(--almost-black);
+  font-size: 1.125rem;
+  font-weight: 500;
+}

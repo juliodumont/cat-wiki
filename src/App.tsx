@@ -1,8 +1,12 @@
-import { useState } from 'react';
 import './App.css';
+import { Footer } from './components';
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <div className="App">
+      <Footer />
+    </div>
+  );
 }
 
 export default App;
