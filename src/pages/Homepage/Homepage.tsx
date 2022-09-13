@@ -1,6 +1,6 @@
 import './Homepage.scss';
 import { Typography } from 'antd';
-import { CatImage } from '../../components';
+import { CatImage, Filter } from '../../components';
 
 const { Text, Title, Paragraph } = Typography;
 
@@ -9,7 +9,9 @@ const Homepage = () => {
     <main>
       <section className="home-container">
         <div className="home-card-container">
-          <div className="card-header-container"></div>
+          <div className="card-header-container">
+            <Filter />
+          </div>
           <div className="card-body-container">
             <Title className="card-body-title" level={2}>
               66+ Breeds For you to discover

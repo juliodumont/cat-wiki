@@ -28,12 +28,10 @@
 }
 
 body {
-  display: flex;
-  place-items: center;
   min-height: 100vh;
 }
 
-p-text {
+.p-text {
   color: var(--almost-black);
   font-size: 1.125rem;
   font-weight: 500;

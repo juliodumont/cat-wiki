@@ -1,6 +1,8 @@
 .cat-trait-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
 
   .trait-level-container {
     display: flex;
@@ -8,6 +10,7 @@
 
     .trait-item {
       height: 0.75rem;
+      min-width: 1.5rem;
       flex: 1;
       border-radius: 8px;
 
