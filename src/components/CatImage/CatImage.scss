@@ -1,0 +1,20 @@
+.cat-image-container {
+  .cat-name {
+    color: var(--almost-black);
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-top: 0.75rem;
+  }
+
+  &.sm {
+    img {
+      border-radius: 12px;
+    }
+  }
+
+  &.lg {
+    img {
+      border-radius: 24px;
+    }
+  }
+}

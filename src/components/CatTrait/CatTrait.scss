@@ -1,0 +1,23 @@
+.cat-trait-container {
+  display: flex;
+  justify-content: space-between;
+
+  .trait-level-container {
+    display: flex;
+    gap: 0.5rem;
+
+    .trait-item {
+      height: 0.75rem;
+      flex: 1;
+      border-radius: 8px;
+
+      &.inactive {
+        background-color: var(--gray);
+      }
+
+      &.active {
+        background-color: var(--medium-brown);
+      }
+    }
+  }
+}

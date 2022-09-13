@@ -1,0 +1,45 @@
+.home-card-container {
+  background-color: var(--light-gray);
+  border-radius: 24px;
+
+  .card-body-container {
+    padding: 1.125rem 1.75rem 3.375rem 1.75rem;
+
+    .card-body-title {
+      margin-bottom: 1.625rem;
+    }
+  }
+}
+
+.home-introduction-container {
+  display: flex;
+  flex-direction: column;
+
+  .home-introduction-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--almost-black);
+    margin-bottom: 2.625rem;
+  }
+
+  .home-introduction-p {
+    margin-bottom: 1.625rem;
+  }
+
+  a {
+    margin-bottom: 4rem;
+  }
+}
+
+.introduction-decoration-container {
+  display: flex;
+
+  .decoration-set {
+    flex: 1;
+  }
+
+  .decoration-image {
+    flex: 1;
+    border-radius: 24px;
+  }
+}
