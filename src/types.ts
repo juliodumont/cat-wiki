@@ -44,9 +44,11 @@ export type Breed = {
     imperial: string;
     metric: string;
   };
+
   image: {
     url: string;
   };
+
   cfa_url: string;
   vcahospitals_url: string;
   vetstreet_url: string;

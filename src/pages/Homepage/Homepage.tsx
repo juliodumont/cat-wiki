@@ -3,13 +3,15 @@ import { Typography } from 'antd';
 import { CatImage, Filter, Loader } from '../../components';
 import CatWikiLogo from '../../assets/Icons/CatWikiLogo';
 import images from '../../constants/images';
-import { useGetBreedsQuery, useGetCatImagesQuery } from '../../services/catNewsApi';
+import { useGetBreedsQuery } from '../../services/catNewsApi';
 import { Breed } from '../../types';
+import { Link, useNavigate } from 'react-router-dom';
 
 const { Text, Title, Paragraph } = Typography;
 
 const Homepage = () => {
   const { data, isFetching } = useGetBreedsQuery({});
+  const navigate = useNavigate();
 
   if (isFetching) return <Loader />;
 
@@ -22,6 +24,11 @@ const Homepage = () => {
     }
   );
 
+  const handleBreedSelect = (breed: string) => {
+    const breedId = catBreeds.filter((cat) => cat.name === breed)[0].id;
+    navigate(`/details/${breedId}`);
+  };
+
   return (
     <main>
       <section className="home-container">
@@ -30,9 +37,9 @@ const Homepage = () => {
             <div className="card-header-content">
               <CatWikiLogo />
               <p>
-                Get to know more about your <br /> cat breed
+                Get to know more about <br /> your cat breed
               </p>
-              <Filter />
+              <Filter onSelect={handleBreedSelect} />
             </div>
             <picture>
               <source srcSet={images.mainCardCatLg} media="(min-width:992px)" />
@@ -43,9 +50,12 @@ const Homepage = () => {
           <div className="card-body-container">
             <p>Most Searched Breeds</p>
             <div className="deco-div"></div>
-            <Title className="card-body-title" level={2}>
-              66+ Breeds For you <br /> to discover
-            </Title>
+            <div className="card-body-title-container">
+              <Title className="card-body-title" level={2}>
+                66+ Breeds For you <br /> to discover
+              </Title>
+              <Link to="/topcats">See more</Link>
+            </div>
 
             <div className="breeds-examples-container">
               {breedsExamplesImages.map((image) => (

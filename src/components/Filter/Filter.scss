@@ -1,0 +1,21 @@
+.breed-filter {
+  width: 120px;
+  border-radius: 60px;
+  font-size: 0.75rem;
+  color: var(--almost-black);
+  font-weight: 500;
+  padding: 0.4rem 0.875rem;
+  border: 1px solid var(--white);
+
+  @media screen and (min-width: 768px) {
+    width: 250px;
+    font-size: 1rem;
+    padding: 0.8rem 1.25rem;
+  }
+
+  @media screen and (min-width: 992px) {
+    font-size: 1.125rem;
+    padding: 1.2rem 1.75rem;
+    width: 300px;
+  }
+}

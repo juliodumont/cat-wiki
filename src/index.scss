@@ -18,6 +18,8 @@
 
 #root {
   width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 * {
@@ -35,6 +37,9 @@ body {
   color: var(--almost-black);
   font-size: 1.125rem;
   font-weight: 500;
+
+  @media screen and (min-width: 768px) {
+  }
 }
 
 @each $weight in 600, 700 {

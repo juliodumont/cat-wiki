@@ -22,8 +22,8 @@ export const catNewsApi = createApi({
       query: (imageId) => createRequest(`/images/${imageId}`)
     }),
     getCatImages: builder.query({
-      query: ({ limit, order }) =>
-        createRequest(`/images/search?limit=${limit}&order=${order}&category_ids`)
+      query: ({ limit, order, breedId }) =>
+        createRequest(`/images/search?limit=${limit}&order=${order}&breed_id=${breedId}`)
     })
   })
 });

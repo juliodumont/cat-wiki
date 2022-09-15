@@ -1,15 +1,25 @@
-import { CatTrait, Loader } from '../../components';
+import { CatImage, CatTrait, Loader } from '../../components';
 import { Breed } from '../../types';
 import './CatDetails.scss';
 import { useParams } from 'react-router-dom';
-import { useGetBreedImagesQuery, useGetBreedQuery } from '../../services/catNewsApi';
+import {
+  useGetBreedImagesQuery,
+  useGetBreedQuery,
+  useGetCatImagesQuery
+} from '../../services/catNewsApi';
 
 const CatDetails = () => {
   const { breedId } = useParams();
 
-  const { data: breedData, isFetching } = useGetBreedQuery(breedId);
-  const { data: breedImages } = useGetBreedImagesQuery(breedData?.reference_image_id);
+  const { data: breedData } = useGetBreedQuery(breedId);
+  const { data: breedImage } = useGetBreedImagesQuery(breedData?.reference_image_id);
+  const { data: moreImages, isFetching } = useGetCatImagesQuery({
+    limit: 8,
+    order: 'RANDOM',
+    breedId
+  });
 
+  console.log(moreImages);
   const {
     name,
     description,
@@ -68,20 +78,22 @@ const CatDetails = () => {
       ) : (
         <>
           <div className="cat-details-container">
-            <div className="cat-image-container"></div>
+            <div className="cat-image-container">
+              <CatImage src={breedImage.url} size="lg" />
+            </div>
             <div className="cat-info-container">
               <div className="cat-details">
                 <h1 className="h-text-600">{name}</h1>
                 <p className="p-text">{description}</p>
-                <p>
+                <p className="trait">
                   <span className="trait">Temperament: </span>
                   {temperament}
                 </p>
-                <p>
+                <p className="trait">
                   <span className="trait">Origin: </span>
                   {origin}
                 </p>
-                <p>
+                <p className="trait">
                   <span className="trait">Life Span: </span>
                   {life_span}
                 </p>
@@ -95,7 +107,11 @@ const CatDetails = () => {
           </div>
           <div className="other-photos-container">
             <h2 className="h-text-600">Other photos</h2>
-            <div className="other-photos"></div>
+            <div className="other-photos">
+              {moreImages.map((image: { url: string; id: string }) => (
+                <CatImage src={image.url} key={image.id} />
+              ))}
+            </div>
           </div>
         </>
       )}

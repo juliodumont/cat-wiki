@@ -7,15 +7,25 @@ import Loader from '../Loader/Loader';
 
 const { Option } = Select;
 
-const Filter = () => {
-  const { data, isFetching } = useGetBreedsQuery({});
+type FilterProps = {
+  onSelect: (item: string) => void;
+};
 
+const Filter = ({ onSelect }: FilterProps) => {
+  const { data, isFetching } = useGetBreedsQuery({});
+  const [selectedBreed, setSelectedBreed] = useState('');
   if (isFetching) return <Loader />;
+
+  const handleBreedSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const breed = event.target.value;
+    setSelectedBreed(breed);
+    onSelect(breed);
+  };
 
   const catBreeds: Breed[] = data;
 
   return (
-    <select>
+    <select className="breed-filter" value={selectedBreed} onChange={handleBreedSelect}>
       {catBreeds.map((cat) => (
         <option key={cat.name} value={cat.name}>
           {cat.name}

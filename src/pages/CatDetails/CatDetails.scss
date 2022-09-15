@@ -1,9 +1,22 @@
 .cat-details-container {
   width: 100%;
   margin-bottom: 5rem;
-  max-width: 600px;
+  max-width: 1100px;
+  gap: 7.1875rem;
   display: flex;
   flex-direction: column;
+
+  .cat-image-container {
+    width: 284px;
+    img {
+      object-fit: cover;
+      height: 300px;
+    }
+  }
+
+  .cat-info-container {
+    max-width: 600px;
+  }
 
   .cat-details {
     h1 {
@@ -22,10 +35,35 @@
 
 .other-photos-container {
   width: 100%;
+  margin-bottom: 5.5rem;
 
   h2 {
     margin-bottom: 2.5rem;
     text-align: left;
+  }
+
+  .other-photos {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.4375rem;
+
+    .cat-image-container {
+      width: 270px;
+      img {
+        object-fit: cover;
+        height: 270px;
+      }
+    }
+
+    @media screen and (min-width: 992px) {
+      gap: 2.475rem;
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    margin-bottom: 11rem;
   }
 }
 
