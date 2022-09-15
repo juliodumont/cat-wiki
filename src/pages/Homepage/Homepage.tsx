@@ -1,12 +1,27 @@
 import './Homepage.scss';
 import { Typography } from 'antd';
-import { CatImage, Filter } from '../../components';
+import { CatImage, Filter, Loader } from '../../components';
 import CatWikiLogo from '../../assets/Icons/CatWikiLogo';
 import images from '../../constants/images';
+import { useGetBreedsQuery, useGetCatImagesQuery } from '../../services/catNewsApi';
+import { Breed } from '../../types';
 
 const { Text, Title, Paragraph } = Typography;
 
 const Homepage = () => {
+  const { data, isFetching } = useGetBreedsQuery({});
+
+  if (isFetching) return <Loader />;
+
+  const catBreeds: Breed[] = data;
+
+  const breedsExamplesImages = ['Abyssinian', 'Chartreux', 'Balinese', 'Norwegian Forest Cat'].map(
+    (catName) => {
+      const cat = catBreeds.filter((cat) => cat.name === catName)[0];
+      return { url: cat.image.url, name: cat.name };
+    }
+  );
+
   return (
     <main>
       <section className="home-container">
@@ -14,7 +29,9 @@ const Homepage = () => {
           <div className="card-header-container">
             <div className="card-header-content">
               <CatWikiLogo />
-              <p>Get to know more about your cat breed</p>
+              <p>
+                Get to know more about your <br /> cat breed
+              </p>
               <Filter />
             </div>
             <picture>
@@ -24,15 +41,21 @@ const Homepage = () => {
             </picture>
           </div>
           <div className="card-body-container">
+            <p>Most Searched Breeds</p>
+            <div className="deco-div"></div>
             <Title className="card-body-title" level={2}>
-              66+ Breeds For you to discover
+              66+ Breeds For you <br /> to discover
             </Title>
 
             <div className="breeds-examples-container">
-              <CatImage src="" />
-              <CatImage src="" />
-              <CatImage src="" />
-              <CatImage src="" />
+              {breedsExamplesImages.map((image) => (
+                <CatImage
+                  className="example-images"
+                  src={image.url}
+                  name={image.name}
+                  key={image.name}
+                />
+              ))}
             </div>
           </div>
         </div>
