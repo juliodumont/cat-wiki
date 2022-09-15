@@ -17,8 +17,11 @@ export const catNewsApi = createApi({
     }),
     getBreed: builder.query({
       query: (breedId) => createRequest(`/breeds/${breedId}`)
+    }),
+    getBreedImages: builder.query({
+      query: (imageId) => createRequest(`/images/${imageId}`)
     })
   })
 });
 
-export const { useGetBreedsQuery, useGetBreedQuery } = catNewsApi;
+export const { useGetBreedsQuery, useGetBreedQuery, useGetBreedImagesQuery } = catNewsApi;

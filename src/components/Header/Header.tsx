@@ -1,10 +1,13 @@
+import { Link } from 'react-router-dom';
 import CatWikiLogo from '../../assets/Icons/CatWikiLogo';
 import './Header.scss';
 
 const Header = () => {
   return (
     <header>
-      <CatWikiLogo />
+      <Link to="/">
+        <CatWikiLogo />
+      </Link>
     </header>
   );
 };

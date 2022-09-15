@@ -16,7 +16,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route path="/details/:catId" element={<CatDetails />} />
+        <Route path="/details/:breedId" element={<CatDetails />} />
       </Routes>
       <Footer />
     </div>

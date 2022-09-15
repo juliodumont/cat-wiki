@@ -3,14 +3,18 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
+  max-width: 512px;
 
   .trait-level-container {
     display: flex;
+    justify-content: flex-end;
     gap: 0.5rem;
+    flex: 1;
 
     .trait-item {
       height: 0.75rem;
       min-width: 1.5rem;
+      max-width: 3.75rem;
       flex: 1;
       border-radius: 8px;
 

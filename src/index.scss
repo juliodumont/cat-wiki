@@ -36,3 +36,16 @@ body {
   font-size: 1.125rem;
   font-weight: 500;
 }
+
+@each $weight in 600, 700 {
+  .h-text-#{$weight} {
+    font-weight: $weight;
+
+    color: var(--almost-black);
+    font-size: 1.75rem;
+
+    @media screen and (min-width: 768px) {
+      font-size: 2.25rem;
+    }
+  }
+}
