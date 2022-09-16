@@ -7,7 +7,7 @@ import { useGetBreedsQuery } from '../../services/catApi';
 import { Breed } from '../../types';
 import { Link, useNavigate } from 'react-router-dom';
 
-const { Text, Title, Paragraph } = Typography;
+const { Title, Paragraph } = Typography;
 
 const Homepage = () => {
   const { data, isFetching } = useGetBreedsQuery({});

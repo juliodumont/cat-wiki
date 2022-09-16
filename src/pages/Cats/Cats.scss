@@ -1,0 +1,35 @@
+.top-breeds-container {
+  max-width: 1248px;
+  color: var(--almost-black);
+
+  .filter-container {
+    max-width: 300px;
+    margin-bottom: 2rem;
+  }
+
+  h1 {
+    font-size: 2.25rem;
+    margin-bottom: 3.125rem;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: 2.25rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+
+  .top-breed-container {
+    display: flex;
+    margin-bottom: 3.375rem;
+    gap: 2.875rem;
+  }
+
+  .top-breed-image {
+    img {
+      width: 170px;
+      height: 170px;
+      object-fit: cover;
+    }
+  }
+}

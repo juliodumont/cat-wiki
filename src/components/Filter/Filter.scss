@@ -6,16 +6,12 @@
   display: flex !important;
   align-items: center !important;
 
-  .search-icon {
-    position: absolute;
-    color: black !important;
-  }
-
   .ant-select-selection-placeholder {
     color: var(--almost-black) !important;
     margin: auto 0rem;
   }
 
+  .ant-select-selection-search-input,
   .ant-select-selector {
     height: 30px !important;
 
