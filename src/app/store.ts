@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { catNewsApi } from '../services/catNewsApi';
+import { catApi } from '../services/catApi';
 export default configureStore({
   reducer: {
-    [catNewsApi.reducerPath]: catNewsApi.reducer
+    [catApi.reducerPath]: catApi.reducer
   }
 });

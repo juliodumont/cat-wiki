@@ -35,10 +35,16 @@ body {
 
 .p-text {
   color: var(--almost-black);
-  font-size: 1.125rem;
+  font-size: 0.75rem;
+
   font-weight: 500;
 
   @media screen and (min-width: 768px) {
+    font-size: 1rem;
+  }
+
+  @media screen and (min-width: 992px) {
+    font-size: 1.125rem;
   }
 }
 

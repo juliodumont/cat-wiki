@@ -8,8 +8,8 @@ const baseUrl = 'https://api.thecatapi.com/v1';
 
 const createRequest = (url: string) => ({ url, headers });
 
-export const catNewsApi = createApi({
-  reducerPath: 'catNewsApi',
+export const catApi = createApi({
+  reducerPath: 'catApi',
   baseQuery: fetchBaseQuery({ baseUrl }),
   endpoints: (builder) => ({
     getBreeds: builder.query({
@@ -29,4 +29,4 @@ export const catNewsApi = createApi({
 });
 
 export const { useGetBreedsQuery, useGetBreedQuery, useGetBreedImagesQuery, useGetCatImagesQuery } =
-  catNewsApi;
+  catApi;

@@ -5,21 +5,26 @@ import { useParams } from 'react-router-dom';
 import {
   useGetBreedImagesQuery,
   useGetBreedQuery,
+  useGetBreedsQuery,
   useGetCatImagesQuery
-} from '../../services/catNewsApi';
+} from '../../services/catApi';
 
 const CatDetails = () => {
   const { breedId } = useParams();
 
-  const { data: breedData } = useGetBreedQuery(breedId);
-  const { data: breedImage } = useGetBreedImagesQuery(breedData?.reference_image_id);
+  const { data } = useGetBreedsQuery({});
+  const catBreeds: Breed[] = data;
+
+  const breedData = catBreeds
+    ? catBreeds.filter((breed: Breed) => breed.id == breedId)[0]
+    : ({} as Breed);
+
   const { data: moreImages, isFetching } = useGetCatImagesQuery({
     limit: 8,
     order: 'RANDOM',
     breedId
   });
 
-  console.log(moreImages);
   const {
     name,
     description,
@@ -33,7 +38,8 @@ const CatDetails = () => {
     intelligence,
     health_issues,
     social_needs,
-    stranger_friendly
+    stranger_friendly,
+    image
   } = breedData ?? ({} as Breed);
 
   const traits = [
@@ -79,7 +85,7 @@ const CatDetails = () => {
         <>
           <div className="cat-details-container">
             <div className="cat-image-container">
-              <CatImage src={breedImage.url} size="lg" />
+              <CatImage src={image.url} size="lg" />
             </div>
             <div className="cat-info-container">
               <div className="cat-details">

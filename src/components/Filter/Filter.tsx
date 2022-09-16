@@ -1,9 +1,10 @@
 import { Select } from 'antd';
 import { useState } from 'react';
 import { Breed } from '../../types';
-import { useGetBreedsQuery } from '../../services/catNewsApi';
+import { useGetBreedsQuery } from '../../services/catApi';
 import './Filter.scss';
 import Loader from '../Loader/Loader';
+import { SearchOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 
@@ -13,25 +14,25 @@ type FilterProps = {
 
 const Filter = ({ onSelect }: FilterProps) => {
   const { data, isFetching } = useGetBreedsQuery({});
-  const [selectedBreed, setSelectedBreed] = useState('');
-  if (isFetching) return <Loader />;
 
-  const handleBreedSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const breed = event.target.value;
-    setSelectedBreed(breed);
-    onSelect(breed);
-  };
+  if (isFetching) return <Loader />;
 
   const catBreeds: Breed[] = data;
 
   return (
-    <select className="breed-filter" value={selectedBreed} onChange={handleBreedSelect}>
+    <Select
+      popupClassName="breed-filter-popup"
+      className="breed-filter"
+      onChange={(breed) => onSelect(breed)}
+      placeholder="Search"
+    >
+      <SearchOutlined className="search-icon" />
       {catBreeds.map((cat) => (
-        <option key={cat.name} value={cat.name}>
+        <Option key={cat.name} value={cat.name}>
           {cat.name}
-        </option>
+        </Option>
       ))}
-    </select>
+    </Select>
   );
 };
 

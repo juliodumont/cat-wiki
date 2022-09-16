@@ -3,7 +3,7 @@ import { Typography } from 'antd';
 import { CatImage, Filter, Loader } from '../../components';
 import CatWikiLogo from '../../assets/Icons/CatWikiLogo';
 import images from '../../constants/images';
-import { useGetBreedsQuery } from '../../services/catNewsApi';
+import { useGetBreedsQuery } from '../../services/catApi';
 import { Breed } from '../../types';
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -80,7 +80,13 @@ const Homepage = () => {
               Having a cat around you can actually trigger the release of calming chemicals in your
               body which lower your stress and anxiety leves
             </Paragraph>
-            <a href="#">read more</a>
+            <a
+              href="https://www.helpguide.org/articles/healthy-living/joys-of-owning-a-cat.htm"
+              target="_blank"
+              rel="noreferrer"
+            >
+              read more
+            </a>
           </div>
           <div className="introduction-decoration-container">
             <div className="decoration-set">
