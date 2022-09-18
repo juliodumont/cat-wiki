@@ -3,6 +3,7 @@ main {
   display: flex;
   justify-content: center;
 }
+
 .home-container {
   width: 100%;
   max-width: 1250px;
@@ -83,15 +84,19 @@ main {
     .card-body-title-container {
       display: flex;
       height: fit-content;
-      align-items: flex-end;
+      align-items: center;
       justify-content: space-between;
       margin-bottom: 1.625rem;
 
       .card-body-title {
-        font-size: 1.125rem;
+        font-size: 0.875rem;
 
         font-weight: 700;
         color: var(--almost-black);
+
+        @media screen and (min-width: 576px) {
+          font-size: 1.125rem;
+        }
 
         @media screen and (min-width: 768px) {
           font-size: 2rem;
@@ -106,7 +111,7 @@ main {
         text-decoration: none;
         text-transform: uppercase;
         color: var(--dark-brown);
-        font-size: 1.125rem;
+        font-size: 0.8rem;
         transition: all 0.3s ease;
         &:visited {
           color: unset;
@@ -116,7 +121,16 @@ main {
           transform: scale(0.9);
           opacity: 0.8;
         }
+
+        @media screen and (min-width: 576px) {
+          font-size: 1.125rem;
+        }
       }
+
+      @media screen and (min-width: 576px) {
+        align-items: flex-end;
+      }
+
       @media screen and (min-width: 768px) {
         margin-bottom: 2.225rem;
       }

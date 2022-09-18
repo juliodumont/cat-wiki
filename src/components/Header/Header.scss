@@ -3,6 +3,10 @@ header {
   max-width: 1248px;
   margin-bottom: 1.5rem;
 
+  svg {
+    width: fit-content;
+  }
+
   a {
     text-decoration: none;
 

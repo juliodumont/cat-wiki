@@ -23,6 +23,11 @@
     display: flex;
     margin-bottom: 3.375rem;
     gap: 2.875rem;
+    flex-direction: column;
+
+    @media screen and (min-width: 576px) {
+      flex-direction: row;
+    }
   }
 
   .top-breed-image {
