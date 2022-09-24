@@ -4,18 +4,13 @@ header {
   margin-bottom: 1.5rem;
 
   svg {
-    width: fit-content;
+    width: auto;
   }
 
   a {
-    text-decoration: none;
-
-    &:hover {
-      opacity: 0.8;
-    }
-
     &:visited {
-      color: unset;
+      color: #000 !important;
+      background-color: #000 !important;
     }
   }
 }
